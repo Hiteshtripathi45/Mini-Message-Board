@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>MIN-MESSAGE-BOARD</nav>
+    <% messages.forEach((mes)=>{ %>
+        <div><h1><%= mes.title%></h1>
+            <h1><%= mes.user%></h1>
+            <h1><%= mes.added%></h1></div>
+    <%})%>
+</body>
+</html>
