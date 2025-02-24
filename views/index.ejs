@@ -8,11 +8,11 @@
 <body>
     <nav>MIN-MESSAGE-BOARD</nav>
     <a href="new"><button>+</button></a>
-    <% messages.forEach((mes)=>{ %>
-        <div><h1><%= mes.title%></h1>
+    <% messages.forEach((mes,index)=>{ %>
+        <div>
             <h1><%= mes.user%></h1>
-            <h2><%= mes.text%></h2>
             <h1><%= mes.added%></h1></div>
+            <a href="/message/<%= index %>">open</a>
     <%})%>
 </body>
 </html>

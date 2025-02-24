@@ -35,8 +35,15 @@ app.get('/new',(req,res)=>{
 app.post('/new',(req,res)=>{
   console.log(req.body)
   const {text, user} = req.body
-  messages.push({text,user,added:new Date()})
+  const added = new Data()
+
+  messages.push({text,user,added})
   res.redirect('/')
+})
+
+app.get('/message/:index',(req,res)=>{
+  const mes =messages[req.params.index]
+  res.render('message',{mes})
 })
 
 app.listen(3000)
