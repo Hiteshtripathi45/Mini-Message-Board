@@ -3,6 +3,9 @@ const app = express()
 
 app.set('view engine','ejs')
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 const messages = [
     {
       text: "Hi there!",
@@ -16,12 +19,24 @@ const messages = [
     }
   ];
 
+app.use(function(req,res,next){
+  console.log(req)
+  next()
+})  
+
 app.get('/',(req,res)=>{
     res.render('index', {messages})
 })
 
 app.get('/new',(req,res)=>{
-    res.send()
+    res.render('form')
+})
+
+app.post('/new',(req,res)=>{
+  console.log(req.body)
+  const {text, user} = req.body
+  messages.push({text,user,added:new Date()})
+  res.redirect('/')
 })
 
 app.listen(3000)
